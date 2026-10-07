@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<article class="project wrap">
+  <p class="back"><a href="{{ '/#projects' | relative_url }}">All projects</a></p>
+  <header class="project-header">
+    {% if page.year %}
+      <p class="kicker">{{ page.year }}</p>
+    {% endif %}
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}
+      <p class="lede">{{ page.summary }}</p>
+    {% endif %}
+    {% if page.tags %}
+      <ul class="tags">
+        {% for tag in page.tags %}
+          <li>{{ tag }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if page.repo %}
+      <p class="project-actions">
+        <a class="button" href="{{ page.repo }}" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+      </p>
+    {% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {% if page.videos %}
+    <section class="demos" aria-label="Demos">
+      <h2>Demos</h2>
+      <div class="demo-list">
+        {% for video in page.videos %}
+          <figure class="demo">
+            <div class="video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/{{ video.id }}"
+                title="{{ video.title }}"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption>
+              <a href="{{ video.url }}" target="_blank" rel="noopener noreferrer">{{ video.title }}</a>
+            </figcaption>
+          </figure>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+</article>

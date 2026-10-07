@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  {% assign desc = page.description | default: page.summary | default: site.description %}
+  <meta name="description" content="{{ desc | strip_newlines | strip }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{{ desc | strip_newlines | strip }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,450&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">Ian Horch</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="{{ '/#about' | relative_url }}">About</a>
+        <a href="{{ '/#patent' | relative_url }}">Patent</a>
+        <a href="{{ '/#projects' | relative_url }}">Projects</a>
+        <a href="{{ '/#work' | relative_url }}">Work</a>
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main id="content">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Ian Horch</p>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    </div>
+  </footer>
+</body>
+</html>

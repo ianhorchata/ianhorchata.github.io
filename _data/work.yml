@@ -1,0 +1,5 @@
+# Add a job by copying a block below. Put the newest job first.
+- role: Job title
+  place: Employer
+  time: Season Year
+  summary: A short description of the work will go here.

@@ -1,6 +1,110 @@
-   <!DOCTYPE html>
-   <html>
-   <head><title>My Site</title></head>
-   <body><h1>Hello world</h1></body>
-   </html>
+---
+layout: default
+description: Portfolio of Ian Horch, an Integrative Engineering student at Lafayette College working in robotics.
+---
 
+<section class="hero wrap">
+  <p class="kicker">Lafayette College · Integrative Engineering</p>
+  <h1>Ian Horch</h1>
+  <p class="lede">Actor, writer, and engineer studying robotics.</p>
+  <p class="hero-links">
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">github.com/{{ site.github_username }}</a>
+  </p>
+</section>
+
+<section id="about" class="wrap band">
+  <div class="section-head">
+    <span class="section-index">01</span>
+    <h2>About</h2>
+  </div>
+  <div class="prose">
+    {% capture about %}{% include about.md %}{% endcapture %}
+    {{ about | markdownify }}
+  </div>
+</section>
+
+<section id="patent" class="patent-band">
+  <div class="wrap band">
+    <div class="section-head">
+      <span class="section-index">02</span>
+      <h2>Patent</h2>
+    </div>
+    <div class="patent-copy">
+      <a class="patent-figure" href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2026072363" target="_blank" rel="noopener noreferrer">
+        <img src="{{ '/assets/images/patent-wo2026072363-fig1.png' | relative_url }}" alt="Figure 1 of WO2026072363, a perspective view of the material lift with the forks retracted.">
+        <span>View on WIPO PatentScope</span>
+      </a>
+      <div class="patent-text">
+      <p class="kicker">International application · Published 2 April 2026</p>
+      <p class="patent-no">WO2026072363</p>
+      <h3>Material lift for unloading automated guided vehicles</h3>
+      <p>
+        Achieved a patent publication with Emmanuel Marsh-Sachs and Southworth International Group, Inc. during my internship at Southworth. 
+      </p>
+      <dl class="facts">
+        <div>
+          <dt>Publication</dt>
+          <dd>WO2026072363</dd>
+        </div>
+        <div>
+          <dt>Application</dt>
+          <dd>PCT/US2025/046390</dd>
+        </div>
+        <div>
+          <dt>Filed</dt>
+          <dd>15 September 2025</dd>
+        </div>
+        <div>
+          <dt>Status</dt>
+          <dd>Pending</dd>
+        </div>
+      </dl>
+      <p class="patent-actions">
+        <a class="button button-light" href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2026072363" target="_blank" rel="noopener noreferrer">WIPO PatentScope</a>
+        <a class="button button-light" href="https://patents.google.com/patent/WO2026072363/en" target="_blank" rel="noopener noreferrer">Google Patents</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="wrap projects">
+  <div class="section-head">
+    <span class="section-index">03</span>
+    <h2>Projects</h2>
+  </div>
+  {% assign projects = site.projects | sort: "date" | reverse %}
+  {% if projects.size > 0 %}
+    <div class="project-grid">
+      {% for project in projects %}
+        {% include project-card.html project=project %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty">No projects yet. Add a markdown file in <code>_projects/</code>.</p>
+  {% endif %}
+</section>
+
+<section id="work" class="wrap band">
+  <div class="section-head">
+    <span class="section-index">04</span>
+    <h2>Work</h2>
+  </div>
+  {% if site.data.work.size > 0 %}
+    <ol class="jobs">
+      {% for job in site.data.work %}
+        <li class="job">
+          <p class="job-time">{{ job.time }}</p>
+          <div>
+            {% if job.role %}<h3>{{ job.role }}</h3>{% endif %}
+            <p class="job-place">{{ job.place }}</p>
+            {% if job.summary %}<p class="job-summary">{{ job.summary }}</p>{% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="empty">No jobs yet. Add an entry in <code>_data/work.yml</code>.</p>
+  {% endif %}
+</section>
