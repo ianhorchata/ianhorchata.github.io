@@ -1,5 +1,21 @@
 # Add a job by copying a block below. Put the newest job first.
-- role: Job title
-  place: Employer
-  time: Season Year
-  summary: A short description of the work will go here.
+
+- role: Undergraduate Research Assistant
+  place: Lafayette College ECE Department
+  time: Summer 2026
+  summary: Designed and built a pick and place robot on the iRobot Create 3 platform with image recognition to automatically pick up objects from the floor.
+
+- role: Maine Space Grant Consortium Undergraduate Intern
+  place: Ocean Renewable Power Company
+  time: Summer 2025
+  summary: Designed and 3D printed underwater cable splice molds. Wrote Solidworks macros to automaically consildate drawing into a PDF. Developed workflow for creating wire routes with Solidworks routing tools.
+
+- role: Sales Engineering Intern
+  place: Southworth Product
+  time: Summer 2023, and Summer 2024.
+  summary: Wrote Solidworks macros to automate the process of creating hundreds of simplified 3d models. 3D printed demonstration prototypes. Created IP and worked to secure a provisional patent.
+
+- role: NASA MERITS Intern
+  place: University of Southern Maine MIST Lab
+  time: Summer 2022
+  summary: Was selected to be a NASA MERITS intern. Worked with a team to create an automatic Magic The Gathering card sorter. Designed, 3D printed and lasercut components.
